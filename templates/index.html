@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Converter</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+<div class = "Ayush">
+    <div class="container">
+        <header>
+            <img src="../static/logo.jpg" alt="Logo" class="logo">
+            <h1>File Converter</h1>
+        </header>
+        <main>
+            <section>
+                <h2>Convert PDF to Word</h2>
+                <form action="/convert" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="pdf_file" accept=".pdf">
+                    <br>
+                    <button type="submit">Convert PDF to Word</button>
+                </form>
+            </section>
+            <section>
+                <h2>Convert Word to PDF</h2>
+                <form action="/convert" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="word_file" accept=".docx">
+                    <br>
+                    <button type="submit">Convert Word to PDF</button>
+                </form>
+            </section>
+        </main>
+        <footer>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/ayush-panwar603957264/" target="_blank" class="social-icon">
+                    <img src="../static/linkedin-icon.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/Ayush0126/" target="_blank" class="social-icon">
+                    <img src="../static/github-icon.png" alt="GitHub">
+                </a>
+            </div>
+            <p>Copyrights &copy; 2024 Ayush_Panwar All Rights Reserved</p>
+        </footer>
+    </div>
+</div>
+</body>
+</html>
