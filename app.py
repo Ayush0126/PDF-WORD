@@ -3,7 +3,9 @@ import os
 import fitz  # PyMuPDF
 from docx import Document
 from PyPDF2 import PdfFileReader, PdfFileWriter
-from docx2pdf import convert
+import pdfkit
+from docx import Document
+
 app = Flask(__name__)
 
 # Set the upload folder
@@ -67,11 +69,20 @@ def pdf_to_docx(pdf_path, docx_path):
 
 
 def docx_to_pdf(docx_path, pdf_path):
+    # Read the Word document
+    docx_document = Document(docx_path)
     
-    try:
-        convert(docx_path, pdf_path)
-    except Exception as e:
-        raise Exception(f"An error occurred during Word to PDF conversion: {e}")
+    # Create a temporary HTML file to hold the document contents
+    html_content = ""
+    for para in docx_document.paragraphs:
+        html_content += f"<p>{para.text}</p>\n"
+    
+    # Save the HTML content to a temporary HTML file
+    with open("temp_file.html", "w") as html_file:
+        html_file.write(html_content)
+    
+    # Convert the HTML file to PDF using pdfkit
+    pdfkit.from_file("temp_file.html", pdf_path)
 
 
 if __name__ == '__main__':
