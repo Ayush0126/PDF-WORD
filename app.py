@@ -3,7 +3,7 @@ import os
 import fitz  # PyMuPDF
 from docx import Document
 from PyPDF2 import PdfFileReader, PdfFileWriter
-
+from docx2pdf import convert
 app = Flask(__name__)
 
 # Set the upload folder
@@ -67,7 +67,7 @@ def pdf_to_docx(pdf_path, docx_path):
 
 
 def docx_to_pdf(docx_path, pdf_path):
-    from docx2pdf import convert
+    
     try:
         convert(docx_path, pdf_path)
     except Exception as e:
